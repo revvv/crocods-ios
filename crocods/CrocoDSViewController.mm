@@ -130,12 +130,12 @@
     key_start.frame=CGRectMake( w * 5,  h * 0, 48,48);
     key_start.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
     [m_oglView addSubview:key_start];
-    
+    /* XXX
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupControllers:) name:GCControllerDidConnectNotification object:nil];
     
     [GCController startWirelessControllerDiscoveryWithCompletionHandler:nil];
     
-    [self setupControllers];
+    [self setupControllers];*/
 }
 
 - (void)viewDidUnload {
@@ -144,7 +144,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:GCControllerDidConnectNotification object:nil];
 
 }
-
+/* XXX
 - (void)setupControllers {
     for (GCController *controller in [GCController controllers]) {
         myController = controller;
@@ -222,7 +222,7 @@
         
         NSLog(@"controller found");
     }
-}
+}*/
 
 
 - (void)showSettingsView {

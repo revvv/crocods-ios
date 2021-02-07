@@ -49,7 +49,7 @@ long nds_GetTicks(void);
 long nds_GetTicks(void) {
     struct timeval current_time;
     gettimeofday(&current_time, NULL);
-    
+
     return ((unsigned long long)current_time.tv_sec * 1000000LL + current_time.tv_usec);
 }
 
@@ -74,8 +74,12 @@ long nds_GetTicks(void) {
         
         framebuf[0]=0;
         
-        
         do {
+            // FIX for iPhone 6 BEGIN
+            for (int fix=0; fix<1000; fix++) {
+                nds_GetTicks();
+            }
+            // FIX for iPhone 6 END
             tz80-=nds_GetTicks();  // TODO("replace this function")
             ExecInstZ80();    // Fais tourner le CPU tant CptInstr < CYCLELIGNE
             tz80+=nds_GetTicks();

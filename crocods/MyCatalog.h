@@ -17,7 +17,7 @@
 	NSMutableArray * _entries;
 	NSMutableArray * _qualifiedEntries;
     
-	UISearchDisplayController *searchDisplayController;
+	UISearchController *searchDisplayController;
     
     UIResponder *delegate;
     
@@ -27,7 +27,7 @@
 
 @property (nonatomic, strong) NSMutableArray * _entries;
 @property (nonatomic, strong) NSMutableArray * _qualifiedEntries;
-@property (nonatomic, strong) UISearchDisplayController *searchDisplayController;
+@property (nonatomic, strong) UISearchController *searchDisplayController;
 @property (nonatomic, strong) UIResponder *delegate;
 
 -(void)refreshData:(NSNotification *)notification;

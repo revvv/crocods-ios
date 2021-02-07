@@ -41,11 +41,13 @@
 	searchBar.delegate = self;
 	self.tableView.tableHeaderView = searchBar;
 	
-	searchDisplayController = [[UISearchDisplayController alloc] initWithSearchBar:searchBar contentsController:self];	
+    /* XXX
+	searchDisplayController = [[UISearchController alloc] initWithSearchBar:searchDisplayController contentsController:self];
 	[searchDisplayController setDelegate:self];
 	[searchDisplayController setSearchResultsDelegate:self];
 	[searchDisplayController setSearchResultsDataSource:self];
-	
+	*/
+    
 	
 	self.tableView.scrollEnabled = YES;
     
@@ -366,8 +368,8 @@
 
 
 #pragma mark -
-#pragma mark UISearchDisplayController Delegate Methods
--(void)searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller{
+#pragma mark UISearchController Delegate Methods
+-(void)searchDisplayControllerDidBeginSearch:(UISearchController *)controller{
     NSLog(@"searchDisplayControllerDidBeginSearch");
     
 }
@@ -379,13 +381,13 @@
 }
 
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption{
+- (BOOL)searchDisplayController:(UISearchController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption{
     NSLog(@"shouldReloadTableForSearchScope");
     [self filterEntriesForSearchText:[self.searchDisplayController.searchBar text]];
     return YES;
 }
 
--(void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller{
+-(void)searchDisplayControllerDidEndSearch:(UISearchController *)controller{
     NSLog(@"searchDisplayControllerDidEndSearch");
     //    [self RebuildIndex:_entries];
     _currentEntries=_entries;
